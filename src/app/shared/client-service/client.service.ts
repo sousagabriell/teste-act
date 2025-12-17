@@ -16,8 +16,17 @@ export class Client {
   private defaultHeaders$ = new BehaviorSubject<Record<string, string>>({
     'Content-Type': 'application/json',
   });
+  private baseUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {}
+
+  setBaseUrl(url: string) {
+    this.baseUrl = url;
+  }
+
+  getBaseUrl() {
+    return this.baseUrl;
+  }
 
   headersChanges(): Observable<Record<string, string>> {
     return this.defaultHeaders$.asObservable();
@@ -68,7 +77,16 @@ export class Client {
     const params = options?.params instanceof HttpParams ? options.params : new HttpParams({ fromObject: options?.params as any });
     const responseType = (options?.responseType || 'json') as 'json' | 'text' | 'blob';
 
-    const obs = this.http.request<T>(method, url, {
+    let fullUrl = url;
+    if (!/^https?:\/\//i.test(url)) {
+      if (url.startsWith('/')) {
+        fullUrl = `${this.baseUrl}${url}`;
+      } else {
+        fullUrl = `${this.baseUrl}/${url}`;
+      }
+    }
+
+    const obs = this.http.request<T>(method, fullUrl, {
       body,
       headers,
       params,

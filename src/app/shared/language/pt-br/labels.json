@@ -8,5 +8,11 @@
      },
      "footer": {
         "texto": "© 2025 TesteAct. Todos os direitos reservados."
+     },
+     "table": {
+        "colunaId": "ID",
+        "colunaNome": "Nome",
+        "colunaDescricao": "Descrição",
+        "colunaPreco": "Preço"
      }
 }
