@@ -1,59 +1,103 @@
-# TesteActFrontend
+# teste-act-frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.10.
+Sistema de gerenciamento de produtos construído com **Angular 20**, utilizando **Server-Side Rendering (SSR)** e **arquitetura em camadas** para garantir escalabilidade e manutenibilidade.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🏗️ Arquitetura do Projeto
+
+Este projeto adota uma **arquitetura em camadas (Layered Architecture)** inspirada em **Domain-Driven Design (DDD)** e **Clean Architecture**, garantindo:
+
+- **Separação de responsabilidades**
+- **Baixo acoplamento**
+- **Testabilidade**
+- **Escalabilidade**
+
+---
+
+## 📁 Estrutura de Pastas
+
+```text
+src/app/
+├── shared/
+│   ├── client-service/
+│   ├── language/
+│   └── ui/
+│       ├── navbar/
+│       ├── footer/
+│       ├── form-add/
+│       └── modal/
+│
+└── teste-act/
+    ├── abstraction/
+    ├── domain/
+    ├── infra/
+    └── presentation/
+```
+
+---
+
+## 🔄 Fluxo de Comunicação
+
+```text
+Presentation
+↓
+Facade
+↓
+API Service
+↓
+HTTP Client
+↓
+Backend / Mock
+```
+
+---
+
+## 🚀 Como Executar
+
+### Desenvolvimento
 
 ```bash
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Acesse: http://localhost:4200
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Mock Server
 
 ```bash
-ng generate component component-name
+npx json-server --watch db.json
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+API: http://localhost:3000
+
+---
+
+## 🌐 Produção (SSR)
 
 ```bash
-ng generate --help
+npm run build
+npm run serve:ssr
 ```
 
-## Building
+SSR: http://localhost:4000
 
-To build the project run:
+---
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## 🧪 Testes
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## 🛠️ Tecnologias
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Angular 20
+- RxJS
+- ngx-bootstrap
+- json-server
+- TypeScript + SCSS
+- SSR com Express
