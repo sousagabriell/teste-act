@@ -15,8 +15,8 @@
       <td>{{ item.description }}</td>
       <td>{{ item.price | currency:'BRL' }}</td>
       <td class="d-flex w-50 justify-content-between">
-        <button class="btn btn-sm btn-primary" (click)="editItem(item.id)">{{labels.form.acoes.editar}}</button>
-        <button class="btn btn-sm btn-danger" (click)="deleteItem(item.id)">{{labels.form.acoes.excluir}}</button>
+        <button class="btn btn-sm btn-primary" (click)="editItem(item)">{{labels.table.acoes.editar}}</button>
+        <button class="btn btn-sm btn-danger" (click)="deleteItem(item.id)">{{labels.table.acoes.excluir}}</button>
       </td>
     </tr>
   </tbody>

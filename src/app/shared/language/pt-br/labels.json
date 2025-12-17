@@ -14,13 +14,21 @@
         "colunaNome": "Nome",
         "colunaDescricao": "Descrição",
         "colunaPreco": "Preço",
-        "colunaAcaoes": "Ações"
+        "colunaAcaoes": "Ações",
+        "acoes": {
+            "editar": "Editar",
+            "excluir": "Excluir"
+        }
      },
      "form": {
         "labelNome": "Nome do Produto",
         "labelDescricao": "Descrição do Produto",
         "labelPreco": "Preço do Produto",
         "botaoSalvar": "Salvar Produto",
-        "botaoCancelar": "Cancelar"
+        "botaoCancelar": "Cancelar",
+        "acoes": {
+            "editar": "Editar",
+            "excluir": "Excluir"
+        }
      }
 }

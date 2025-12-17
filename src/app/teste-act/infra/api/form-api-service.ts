@@ -27,4 +27,17 @@ export class FormApiService {
     );
   }
 
+  callputProducts(id: number, form: FormValues): Observable<{ sucess: boolean }>{
+    const url = `${this.urlBase}/${id}`;
+    const payload = new FormItemRequest({
+    item: form.item,
+    price: Number(form.price),
+    description: form.description
+  });
+    return this.clientService.put<{ sucess: boolean }>(url, payload).pipe(
+      retry(1),
+      catchError((error: HttpErrorResponse) => throwError(() => ErrorResponse.convertToModel(error))),
+      map((response: { sucess: boolean }) => response)
+    );
+  }
 }

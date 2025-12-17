@@ -1,9 +1,10 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppLang, LANG } from '../../language/language.token';
 import { FormFacade } from '../../../teste-act/abstraction/form/form-facade';
 import { Router } from '@angular/router';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-form-add',
@@ -12,15 +13,18 @@ import { Router } from '@angular/router';
   templateUrl: './form-add.html',
   styleUrls: ['./form-add.scss'],
 })
-export class FormAdd {
+export class FormAdd implements OnInit {
   readonly labels: any;
   public form: FormGroup;
+  product?: any;
+  redirectAfterSave = true;
 
   constructor(
     @Inject(LANG) lang: AppLang,
     private readonly formBuilder: FormBuilder,
     private readonly formFacade: FormFacade,
-    private readonly router: Router
+    private readonly router: Router,
+    public bsModalRef?: BsModalRef
   ) {
     this.labels = (lang && (lang as any).labels) || {};
     this.form = this.formBuilder.group({
@@ -30,16 +34,36 @@ export class FormAdd {
     });
   }
 
+  ngOnInit(): void {
+    if (this.product) {
+      this.form.patchValue({
+        item: this.product.item || '',
+        description: this.product.description || '',
+        price: this.product.price || ''
+      });
+    }
+  }
+
   public saveProduct(): void {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
     }
+    
     const payload: FormValues = this.form.value;
-    this.formFacade.addProducts(payload).subscribe({
+    const request$ = this.product?.id
+      ? this.formFacade.editProducts(this.product.id, payload)
+      : this.formFacade.addProducts(payload);
+
+    request$.subscribe({
       next: (response) => {
         this.form.reset();
-        this.router.navigate(['/home']);
+        if (this.bsModalRef) {
+          this.bsModalRef.hide();
+        }
+        if (this.redirectAfterSave) {
+          this.router.navigate(['/home']);
+        }
       },
     });
   }
