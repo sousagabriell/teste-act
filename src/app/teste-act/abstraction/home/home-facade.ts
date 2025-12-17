@@ -10,4 +10,7 @@ export class HomeFacade {
   getProducts() {
     return this.homeApiService.callgetProducts()
   }
+  deleteProduct(id: number) {
+    return this.homeApiService.callDeleteProduct(id)
+  }
 }

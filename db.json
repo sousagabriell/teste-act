@@ -1,12 +1,70 @@
 {
   "products": [
-    { "id": 1, "item": "Arroz 1kg", "description": "Arroz branco tipo 1", "price": 7.49 },
-    { "id": 2, "item": "Feijão 1kg", "description": "Feijão carioca", "price": 6.29 },
-    { "id": 3, "item": "Açúcar 1kg", "description": "Açúcar cristal", "price": 3.99 },
-    { "id": 4, "item": "Leite 1L", "description": "Leite integral UHT", "price": 4.50 },
-    { "id": 5, "item": "Pão francês (kg)", "description": "Pão francês fresco", "price": 12.00 },
-    { "id": 6, "item": "Óleo 900ml", "description": "Óleo de soja", "price": 8.75 },
-    { "id": 7, "item": "Macarrão 500g", "description": "Macarrão espaguete", "price": 2.99 },
-    { "id": 8, "item": "Café 250g", "description": "Café torrado e moído", "price": 9.50 }
+    {
+      "id": "1",
+      "item": "Arroz 1kg",
+      "description": "Arroz branco tipo 1",
+      "price": 7.49
+    },
+    {
+      "id": "2",
+      "item": "Feijão 1kg",
+      "description": "Feijão carioca",
+      "price": 6.29
+    },
+    {
+      "id": "3",
+      "item": "Açúcar 1kg",
+      "description": "Açúcar cristal",
+      "price": 3.99
+    },
+    {
+      "id": "4",
+      "item": "Leite 1L",
+      "description": "Leite integral UHT",
+      "price": 4.5
+    },
+    {
+      "id": "5",
+      "item": "Pão francês (kg)",
+      "description": "Pão francês fresco",
+      "price": 12
+    },
+    {
+      "id": "6",
+      "item": "Óleo 900ml",
+      "description": "Óleo de soja",
+      "price": 8.75
+    },
+    {
+      "id": "7",
+      "item": "Macarrão 500g",
+      "description": "Macarrão espaguete",
+      "price": 2.99
+    },
+    {
+      "id": "8",
+      "item": "Café 250g",
+      "description": "Café torrado e moído",
+      "price": 9.5
+    },
+    {
+      "id": "9",
+      "item": "teste",
+      "price": 2,
+      "description": ""
+    },
+    {
+      "id": "10",
+      "item": "teste",
+      "price": 5,
+      "description": ""
+    },
+    {
+      "id": "11",
+      "item": "teste",
+      "price": 3,
+      "description": "aqui"
+    }
   ]
 }

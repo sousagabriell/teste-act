@@ -13,6 +13,14 @@
         "colunaId": "ID",
         "colunaNome": "Nome",
         "colunaDescricao": "Descrição",
-        "colunaPreco": "Preço"
+        "colunaPreco": "Preço",
+        "colunaAcaoes": "Ações"
+     },
+     "form": {
+        "labelNome": "Nome do Produto",
+        "labelDescricao": "Descrição do Produto",
+        "labelPreco": "Preço do Produto",
+        "botaoSalvar": "Salvar Produto",
+        "botaoCancelar": "Cancelar"
      }
 }

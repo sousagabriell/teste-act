@@ -3,7 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductsItemTable } from '../../../../domain/model/home/products-item-table';
 import { Observable } from 'rxjs';
-import { tap, shareReplay } from 'rxjs/operators';
+import { shareReplay } from 'rxjs/operators';
 import { HomeFacade } from '../../../../abstraction/home/home-facade';
 import { AppLang, LANG } from '../../../../../shared/language/language.token';
 
@@ -30,5 +30,13 @@ export class Table {
 
   get getData(): Observable<ProductsItemTable[]> {
     return this.products$;
+  }
+
+  public deleteItem(id: number): void {
+    this.homeFacade.deleteProduct(id).subscribe({
+      next: () => {
+        this.homeFacade.getProducts().subscribe();
+      }
+    });
   }
 }

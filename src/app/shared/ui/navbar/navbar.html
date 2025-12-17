@@ -7,10 +7,10 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">{{ labels.navbar.menus.home }}</a>
+          <span class="nav-link" aria-current="page" [routerLink]="'/'">{{ labels.navbar.menus.home }}</span>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">{{ labels.navbar.menus.cadastrar }}</a>
+          <span class="nav-link" [routerLink]="'/add'">{{ labels.navbar.menus.cadastrar }}</span>
         </li>
       </ul>
     </div>
