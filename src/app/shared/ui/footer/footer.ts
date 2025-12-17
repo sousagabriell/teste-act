@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LANG, AppLang } from '../../language/language.token';
+
 
 @Component({
   selector: 'app-footer',
@@ -9,5 +11,9 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./footer.scss'],
 })
 export class Footer {
+  readonly labels: any;
 
+  constructor(@Inject(LANG) lang: AppLang) {
+    this.labels = (lang && (lang as any).labels) || {};
+  }
 }

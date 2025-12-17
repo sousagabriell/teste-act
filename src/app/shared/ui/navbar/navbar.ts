@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LANG, AppLang } from '../../language/language.token';
 
 @Component({
   selector: 'app-navbar',
@@ -9,5 +10,9 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./navbar.scss'],
 })
 export class Navbar {
+  readonly labels: any;
 
+  constructor(@Inject(LANG) lang: AppLang) {
+    this.labels = (lang && (lang as any).labels) || {};
+  }
 }

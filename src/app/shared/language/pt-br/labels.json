@@ -1,0 +1,12 @@
+{
+	"navbar": { 
+        "titulo": "TesteAct",
+        "menus": {
+            "home": "Início",
+            "cadastrar": "Cadastrar" 
+        }
+     },
+     "footer": {
+        "texto": "© 2025 TesteAct. Todos os direitos reservados."
+     }
+}
